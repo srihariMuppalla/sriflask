@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}Flask App{% endblock %}</title>
+        <style>
+            /* Basic CSS for navigation bar */
+            nav {
+                background-color: #333;
+                color: white;
+                padding: 10px;
+                overflow: hidden;
+            }
+
+            nav a {
+                float: left;
+                color: white;
+                text-align: center;
+                padding: 14px 20px;
+                text-decoration: none;
+            }
+
+            nav a:hover {
+                background-color: #ddd;
+                color: black;
+            }
+
+            .menu-icon {
+                display: none;
+            }
+
+            section {
+                padding: 20px 0;
+            }
+
+            section h2 {
+                color: #333;
+            }
+
+            footer {
+                background-color: #333;
+                color: #fff;
+                text-align: center;
+                padding: 10px 0;
+            }
+
+            @media screen and (max-width: 600px) {
+                nav a:not(:first-child) {display: none;}
+                nav a.menu-icon {
+                    float: right;
+                    display: block;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+            <a href="/contact">Contact</a>
+            <a href="/products">Products</a>
+            <a href="/services">Services</a>
+            <a href="/blog">Blog</a>
+            <a href="/faq">FAQ</a>
+            <a href="/pricing">Pricing</a>
+            <a href="/testimonials">Testimonials</a>
+            <a href="/careers">Careers</a>
+            <a href="javascript:void(0);" class="menu-icon" onclick="toggleNavMenu()">&#9776;</a>
+        </nav>
+        
+        <div class="content">
+           <section id="about">
+                <div class="container">
+                <h2>Srihari Muppalla</h2>
+                <p>I am a passionate full-stack developer with experience in building web applications using various technologies.</p>
+                <p>My expertise includes:</p>
+                <ul>
+                    <li>Frontend: HTML, CSS, JavaScript, React</li>
+                    <li>Backend: Node.js, Express, Django</li>
+                    <li>Database: MySQL, MongoDB</li>
+                    <li>Version Control: Git</li>
+                </ul>
+                </div>
+            </section>
+
+            <section id="skills">
+                <div class="container">
+                <h2>Skills</h2>
+                <ul>
+                    <li>HTML5 & CSS3</li>
+                    <li>JavaScript (ES6+)</li>
+                    <li>React.js & Redux</li>
+                    <li>Node.js & Express.js</li>
+                    <li>Python & Flask</li>
+                    <li>SQL & NoSQL Databases</li>
+                    <li>Git & GitHub</li>
+                    <li>Responsive Web Design</li>
+                </ul>
+                </div>
+            </section>
+
+            <section id="projects">
+                <div class="container">
+                <h2>Projects</h2>
+                <div class="project">
+                    <h3>Project 1</h3>
+                    <p>Description of Project 1</p>
+                </div>
+                <div class="project">
+                    <h3>Project 2</h3>
+                    <p>Description of Project 2</p>
+                </div>
+                </div>
+            </section>
+
+            <section id="contact">
+                <div class="container">
+                <h2>Contact Me</h2>
+                <p>Email: john@example.com</p>
+                <p>Phone: +1234567890</p>
+                </div>
+            </section>
+
+            <footer>
+                <div class="container">
+                <p>&copy; 2024 John Doe</p>
+                </div>
+            </footer>
+        </div>
+
+        <script>
+            function toggleNavMenu() {
+                var navLinks = document.querySelectorAll('nav a:not(:first-child)');
+                for (var i = 0; i < navLinks.length; i++) {
+                    if (navLinks[i].style.display === "block") {
+                        navLinks[i].style.display = "none";
+                    } else {
+                        navLinks[i].style.display = "block";
+                    }
+                }
+            }
+        </script>
+    </body>
+    </html>

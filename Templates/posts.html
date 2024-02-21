@@ -1,0 +1,27 @@
+{% extends "index.html" %}
+{% block content %}
+
+<div class="container">
+    <h1>Add Post</h1>
+    <form action="/posts" method="post" enctype="multipart/form-data">
+        <input type="text" name="caption" placeholder="Caption">
+        <input type="file" name="image">
+        <button type="submit">Add Post</button>
+    </form>
+    
+    <h1>Posts</h1>
+    {% for post in posts %}
+    <div class="post">
+        <img src="{{ post.image_url }}" alt="Post Image">
+        <p>{{ post.caption }}</p>
+        <span>Likes: {{ post.likes }}</span>
+        <span>Comments: {{ post.comments }}</span>
+        <span>Shares: {{ post.shares }}</span>
+        <button onclick="likePost('{{ post.id }}')">Like</button>
+        <button onclick="commentPost('{{ post.id }}')">Comment</button>
+        <button onclick="sharePost('{{ post.id }}')">Share</button>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

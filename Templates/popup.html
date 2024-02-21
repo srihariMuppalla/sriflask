@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Register Page</title>
+<style>
+  .popup {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+  }
+  .popup-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<!-- Register Form -->
+<form action="register.php" method="post">
+  <label for="username">Username:</label>
+  <input type="text" id="username" name="username">
+  <input type="submit" value="Register">
+</form>
+
+<!-- Popup for Username Exists -->
+{% if username_exists %}
+<div class="popup" id="usernameExistsPopup">
+  <div class="popup-content">
+    <span class="close-btn" onclick="closePopup()">&times;</span>
+    <p>Username already exists. Please choose another username.</p>
+  </div>
+</div>
+{% endif %}
+
+<script>
+  function closePopup() {
+    document.getElementById('usernameExistsPopup').style.display = 'none';
+  }
+</script>
+</body>
+</html>

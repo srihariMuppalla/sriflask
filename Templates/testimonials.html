@@ -1,0 +1,68 @@
+{% extends "index.html" %}
+{% block content %}
+
+<div class="container">
+    <h2>Testimonials</h2>
+    <div class="carousel">
+      <ul>
+        <li>
+          <div class="testimonial-content">
+            <h3>Ajith</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eget augue ut libero condimentum interdum.</p>
+          </div>
+          <div class="testimonial-image">
+            <img src="https://as1.ftcdn.net/v2/jpg/02/43/12/34/1000_F_243123463_zTooub557xEWABDLk0jJklDyLSGl2jrr.jpg" alt="John Doe">
+          </div>
+        </li>
+        <li>
+          <div class="testimonial-content">
+            <h3>Jane Smith</h3>
+            <p>Integer eget nunc sit amet magna luctus accumsan ut non est. Mauris vestibulum augue at felis posuere, nec aliquet dolor fringilla.</p>
+          </div>
+          <div class="testimonial-image">
+            <img src="https://as2.ftcdn.net/v2/jpg/03/83/25/83/1000_F_383258331_D8imaEMl8Q3lf7EKU2Pi78Cn0R7KkW9o.jpg" alt="Jane Smith">
+          </div>
+        </li>
+        <li>
+          <div class="testimonial-content">
+            <h3>Michael Johnson</h3>
+            <p>Proin tristique felis nec odio venenatis lacinia. Curabitur euismod lorem id velit consequat congue.</p>
+          </div>
+          <div class="testimonial-image">
+            <img src="https://as2.ftcdn.net/v2/jpg/03/03/11/75/1000_F_303117590_NNmo6BS2fOBEmDp8uKs2maYmt03t8fSL.jpg" alt="Michael Johnson">
+          </div>
+        </li>
+        <li>
+            <div class="testimonial-content">
+              <h3>Srihari</h3>
+              <p>Proin tristique felis nec odio venenatis lacinia. Curabitur euismod lorem id velit consequat congue.</p>
+            </div>
+            <div class="testimonial-image">
+              <img src="https://as2.ftcdn.net/v2/jpg/02/85/98/31/1000_F_285983137_YVgUzZwvYi9PzkXU0MsPsyuWMgCj83DW.jpg" alt="Michael Johnson">
+            </div>
+          </li>
+          <li>
+            <div class="testimonial-content">
+              <h3>Lokesh</h3>
+              <p>Proin tristique felis nec odio venenatis lacinia. Curabitur euismod lorem id velit consequat congue.</p>
+            </div>
+            <div class="testimonial-image">
+              <img src="https://as1.ftcdn.net/v2/jpg/05/19/54/90/1000_F_519549071_gHbPVTXsr5qFPTUUyXSnhNZb4We7dATX.jpg" alt="Michael Johnson">
+            </div>
+          </li>
+          <li>
+            <div class="testimonial-content">
+              <h3>Satheesh</h3>
+              <p>Proin tristique felis nec odio venenatis lacinia. Curabitur euismod lorem id velit consequat congue.</p>
+            </div>
+            <div class="testimonial-image">
+              <img src="https://as1.ftcdn.net/v2/jpg/03/02/88/46/1000_F_302884605_actpipOdPOQHDTnFtp4zg4RtlWzhOASp.jpg" alt="Michael Johnson">
+            </div>
+          </li>
+      </ul>
+      <div class="arrow left" onclick="prevTestimonial()">&#10094;</div>
+      <div class="arrow right" onclick="nextTestimonial()">&#10095;</div>
+    </div>
+  </div>
+
+  {% endblock %}
