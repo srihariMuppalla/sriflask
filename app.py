@@ -56,7 +56,7 @@ def first():
             # Retrieve User data
             cursor.execute("SELECT * FROM registrations WHERE username=?", (username,))
             User = cursor.fetchall()
-            userData = User[0]
+            userData = User
             
             print(logging.debug(userData))
         
@@ -70,9 +70,9 @@ def first():
             conn.close()
         if User:  # Check if User list is not empty
             userData = User[0]
-            return render_template('index.html', userData=userData)
+            return render_template('first.html', userData=userData)
         else:
-            return render_template('index.html', userData=None)
+            return render_template('first.html', userData=None)
     else:
         return render_template('first.html')
 
@@ -527,6 +527,25 @@ def posts():
             # Close the connection
             conn.close()
 
+    try:
+        conn = sqlite3.connect('example.db')
+        cursor = conn.cursor()
+
+        # Retrieve posts data
+        cursor.execute("SELECT * FROM registrations")
+        userList = cursor.fetchall()
+        
+        print(logging.debug(userList))
+            
+
+    except sqlite3.Error as e:
+        print("SQLite error:", e)
+        posts = []
+
+    finally:
+        # Close the connection
+        conn.close()
+
     if 'username' in session:
         username = session['username']
         # Fetch user information from the database using the username
@@ -552,7 +571,78 @@ def posts():
             # Close the connection
             conn.close()
 
-    return render_template('posts.html', userData=userData, posts=posts)
+    return render_template('posts.html', userData=userData, posts=posts, userList=userList)
+
+@app.route('/<username>')
+def user_details(username):
+    try:
+        # Connect to the SQLite database
+        conn = sqlite3.connect('example.db')
+        cursor = conn.cursor()
+
+        # Retrieve User data
+        cursor.execute("SELECT * FROM registrations WHERE username=?", (username,))
+        indiUserData = cursor.fetchall()
+        indiUserDataList = indiUserData[0]
+        
+        print(logging.debug(indiUserData))
+    
+    except sqlite3.Error as e:
+        print("SQLite error:", e)
+        posts = []
+
+    finally:
+        # Close the connection
+        conn.close()
+
+    # Fetch posts data from the database
+    try:
+        # Connect to the SQLite database
+        conn = sqlite3.connect('example.db')
+        cursor = conn.cursor()
+
+        # Retrieve posts data
+        cursor.execute("SELECT * FROM userposts WHERE username=?", (username,))
+        posts = cursor.fetchall()
+        
+        print(logging.debug(posts))
+        
+
+    except sqlite3.Error as e:
+        print("SQLite error:", e)
+        posts = []
+
+    finally:
+        # Close the connection
+        conn.close()
+
+    if 'username' in session:
+        username = session['username']
+        # Fetch user information from the database using the username
+        # Display the user's profile page
+        try:
+            # Connect to the SQLite database
+            conn = sqlite3.connect('example.db')
+            cursor = conn.cursor()
+
+            # Retrieve User data
+            cursor.execute("SELECT * FROM registrations WHERE username=?", (username,))
+            User = cursor.fetchall()
+            userData = User[0]
+            
+            print(logging.debug(userData))
+        
+
+        except sqlite3.Error as e:
+            print("SQLite error:", e)
+            posts = []
+
+        finally:
+            # Close the connection
+            conn.close()
+
+    return render_template('userdetails.html', userData=userData, indiUserDataList=indiUserDataList, posts=posts)
+
 
 @app.route('/logout')
 def logout():

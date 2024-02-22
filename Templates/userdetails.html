@@ -1,0 +1,25 @@
+{% extends "index.html" %}
+{% block content %}
+
+<div class="container">
+    <div class="user-cont">
+        <div class="user-cont-profile-img">{{ indiUserDataList[1][0] }}</div>
+        <div class="user-cont-info">
+            <h1>{{ indiUserDataList[1] }} {{ indiUserDataList[2] }}</h1>
+            <p>Company : {{ indiUserDataList[3] }}</p>
+            <p>Mobile : {{ indiUserDataList[4] }}</p>
+            <p>User Name : {{ indiUserDataList[5] }}</p>
+        </div>
+    </div>
+    {% for post in posts %}
+    <div class="post">
+        <p>{{ post[2] }}</p>
+        <img src="{{ post[3] }}" alt="Post Image"><br />
+        <button onclick="likePost('{{ post.id }}')"><i class="fas fa-solid fa-heart"></i></button><span>{{ post[4] }}</span>
+        <button onclick="commentPost('{{ post.id }}')"><i class="fas fa-solid fa-comment"></i></button><span>{{ post[5] }}</span>
+        <button onclick="sharePost('{{ post.id }}')"><i class="fas fa-solid fa-share"></i></button><span>{{ post[6] }}</span>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

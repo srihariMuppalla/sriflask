@@ -3,6 +3,7 @@
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
+    
   }
 
 .container {
@@ -14,6 +15,7 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: justify;
     animation: fadeIn 1s ease-in-out;
+    background-color: #D4ebf2;
 }
 
 .container-home {
@@ -242,7 +244,7 @@
     background-color: #fff;
     position: absolute;
     top: 20px;
-    right: 20px;
+    left: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -426,6 +428,7 @@
   box-sizing: border-box;
   margin: 20px 0px;
   border-radius: 20px;
+  background-color: #b0ddff;
 }
 
 .post img {
@@ -437,4 +440,99 @@
 .post span {
   margin-right: 30px;
   margin-left: 10px;
+}
+
+.reco-cont {
+  width: 300px;
+  height: auto;
+  background-color: #fff;
+  position: absolute;
+  top: 125px;
+  right: 220px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  box-sizing: border-box;
+  text-transform: capitalize;
+}
+
+.reco-item {
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  margin-bottom: 10px;
+}
+
+.reco-profile{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.reco-profile-image{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 25px;
+  background-color: #007bff;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.reco-profile-name {
+  font-size: 20px;
+  margin: 0px 0px 0px 10px;
+}
+
+.reco-button-cont {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.reco-button-cont button {
+  padding: 5px 15px 7px 15px;
+  background-color: #1303fc;
+  border: 0px;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+
+.user-cont {
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  box-sizing: border-box;
+  text-transform: capitalize;
+  background-color: #b8ebff;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.user-cont-profile-img {
+  width: 200px;
+  height: 200px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #1303fc;
+  color: #fff;
+  font-size: 100px;
+  border-radius: 10px;
+}
+
+.user-cont-info {
+  margin-left: 30px;
 }

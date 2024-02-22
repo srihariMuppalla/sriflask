@@ -10,6 +10,21 @@
     </form>
     
     <h1>Posts</h1>
+    <div class="reco-cont">
+        <h3>Recommendations</h3>
+        {% for user in userList %}
+        <div class="reco-item">
+            <div class="reco-profile">
+                <div class="reco-profile-image">{{ user[1][0] }}</div>
+                <p class="reco-profile-name">{{ user[1] }} {{ user[2] }}</p>
+            </div>
+            <div class="reco-button-cont">
+                <button>Add Friend</button>
+                <a href="/{{user[5]}}"><button>View Profile</button></a>
+            </div>
+        </div>
+        {% endfor %} 
+    </div>
     {% for post in posts %}
     <div class="post">
         <p>{{ post[2] }}</p>
