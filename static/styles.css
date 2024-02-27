@@ -536,3 +536,61 @@
 .user-cont-info {
   margin-left: 30px;
 }
+
+/* email template section */
+
+.email-temp-adjust{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 0px;
+}
+
+.email-temp-adjust form {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.email-temp-adjust input[type="number"] {
+  width: 50px;
+  height: 24px;
+  display: block;
+  font-size: 16px;
+  -moz-appearance: textfield;
+}
+
+.email-temp-adjust span {
+  padding: 0px 10px;
+}
+
+.email-template {
+  width: 100%;
+  max-width: 760px;
+  height: 500px;
+  margin: 0px auto;
+  padding: 30px 0px;
+  background-color: #F6F8FC;
+  align-self: center;
+  overflow: scroll;
+}
+
+.email-download {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 0px;
+}
+
+.email-download button {
+  width: 135px;
+  height: 35px;
+  border: 0px;
+  border-radius: 10px;
+  font-size: 16px;
+  background-color: #b0ddff;
+  cursor: pointer;
+}

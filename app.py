@@ -56,7 +56,7 @@ def first():
             # Retrieve User data
             cursor.execute("SELECT * FROM registrations WHERE username=?", (username,))
             User = cursor.fetchall()
-            userData = User
+            userData = User[0]
             
             print(logging.debug(userData))
         
@@ -385,6 +385,35 @@ def services():
             conn.close()
 
     return render_template('services.html', userData=userData)
+
+@app.route('/services/email')
+def emailDev():
+    if 'username' in session:
+        username = session['username']
+        # Fetch user information from the database using the username
+        # Display the user's profile page
+        try:
+            # Connect to the SQLite database
+            conn = sqlite3.connect('example.db')
+            cursor = conn.cursor()
+
+            # Retrieve User data
+            cursor.execute("SELECT * FROM registrations WHERE username=?", (username,))
+            User = cursor.fetchall()
+            userData = User[0]
+            
+            print(logging.debug(userData))
+        
+
+        except sqlite3.Error as e:
+            print("SQLite error:", e)
+            posts = []
+
+        finally:
+            # Close the connection
+            conn.close()
+
+    return render_template('Services/email.html', userData=userData)
 
 @app.route('/pricing')
 def pricing():

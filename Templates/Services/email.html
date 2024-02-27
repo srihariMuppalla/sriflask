@@ -1,0 +1,85 @@
+{% extends "index.html" %}
+{% block content %}
+<div class="container">
+<h1>My Email Templates</h1>
+
+<p>Below is a preview of our email development services:</p>
+<br />
+<div>
+    <ul>
+        <li><a href="#" class="html-link" data-html="wireframe.html">HTML 1</a></li>
+        <li><a href="#" class="html-link" data-html="amp_carousel.html">HTML 2</a></li>
+        <li><a href="#" class="html-link" data-html="amp_form.html">HTML 3</a></li>
+        <li><a href="#" class="html-link" data-html="Banner_image.html">HTML 4</a></li>
+        <li><a href="#" class="html-link" data-html="Caurosel.html">HTML 5</a></li>
+        <!-- Add more list items for each HTML file -->
+    </ul>
+
+</div>
+
+<br />
+<div class="email-temp-adjust">
+    <form>
+        <input type="number" name="width" placeholder="Width" required value="720" id="inputWidth"><span> &nbsp;X&nbsp; </span>
+        <input type="number" name="height" placeholder="Height" required value="500" id="inputHeight">
+    </form>
+</div>
+<div class="email-template" id="emailTemplate">
+<iframe width="100%" height="100%" frameborder="0" src="{{ url_for('static', filename='myhtmls/wireframe.html') }}" id="htmlFrame"></iframe>
+<div class="email-download"><button id="downloadButton">Download</button></div>
+</div>
+
+
+<script>
+    const widthInput = document.getElementById("inputWidth");
+    const heightInput = document.getElementById("inputHeight");
+    const emailTemplate = document.getElementById("emailTemplate");
+    const htmlFrame = document.getElementById("htmlFrame");
+    const downloadButton = document.getElementById("downloadButton");
+    
+    widthInput.addEventListener("input", manipulateDimensions);
+    heightInput.addEventListener("input", manipulateDimensions);
+    
+    // Function to manipulate dimensions
+    function manipulateDimensions() {
+        // Get the input values
+        var width = parseInt(widthInput.value);
+        var height = parseInt(heightInput.value);
+    
+        // Apply width to the email template element
+        emailTemplate.style.width = width + "px"; // Add "px" to specify the unit (pixels)
+        emailTemplate.style.height = height + "px"; // Add "px" to specify the unit (pixels)
+    }
+
+    var htmlLinks = document.querySelectorAll('.html-link');
+
+    // Loop through each HTML link
+    htmlLinks.forEach(function(link) {
+        // Add click event listener to each link
+        link.addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent default link behavior
+
+            // Get the HTML file name from the data attribute
+            var htmlFile = link.getAttribute('data-html');
+
+            // Update iframe src to render the selected HTML file
+            htmlFrame.src = "{{ url_for('static', filename='myhtmls/') }}" + htmlFile;
+        });
+    });
+
+    downloadButton.addEventListener("click", function() {
+        // Get the URL of the selected HTML file
+        const selectedHtmlFile = htmlFrame.src;
+
+        // Create a temporary anchor element
+        const anchor = document.createElement("a");
+        anchor.href = selectedHtmlFile;
+        anchor.download = selectedHtmlFile.split('/').pop(); // Set the download attribute to the file name
+        document.body.appendChild(anchor);
+        anchor.click(); // Simulate a click on the anchor element
+        document.body.removeChild(anchor); // Remove the anchor element from the document
+    });
+
+    </script>
+</div>
+{% endblock %}
